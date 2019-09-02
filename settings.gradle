@@ -1,4 +1,6 @@
 rootProject.name = 'kubernetes.grpc'
 include 'kubernetes-grpc-proto'
 findProject(':kubernetes-grpc-proto')?.name = 'kubernetes.grpc.proto'
+include 'kubernetes-grpc-service-simple'
+findProject(':kubernetes-grpc-service-simple')?.name = 'kubernetes.grpc.service.simple'
 
