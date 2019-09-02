@@ -2,6 +2,26 @@ plugins {
     id 'java'
 }
 
+subprojects {
+
+    apply plugin: 'java'
+
+    targetCompatibility = '11'
+    sourceCompatibility = '11'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        compile 'org.slf4j:slf4j-api:1.8.0-beta4'
+        compile 'org.slf4j:slf4j-simple:1.8.0-beta4'
+        testCompile 'junit:junit:4.12'
+        testCompile 'org.mockito:mockito-core:2.27.0'
+    }
+}
+
 group 'sk.banik.examples'
 version '1.0-SNAPSHOT'
 
