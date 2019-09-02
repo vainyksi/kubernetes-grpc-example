@@ -1,2 +1,4 @@
 rootProject.name = 'kubernetes.grpc'
+include 'kubernetes-grpc-proto'
+findProject(':kubernetes-grpc-proto')?.name = 'kubernetes.grpc.proto'
 

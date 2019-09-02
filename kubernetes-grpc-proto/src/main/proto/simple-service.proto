@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package backend;
+
+option java_package = "sk.banik.examples.kubernetes.grpc.proto";
+
+import "protobuf/empty.proto";
+
+service SimpleService {
+
+    rpc getInfo (google.protobuf.Empty) returns (InfoResponse);
+
+}
+
+message InfoResponse {
+    string primaryInfo = 1;
+    string otherInfo = 2;
+}
