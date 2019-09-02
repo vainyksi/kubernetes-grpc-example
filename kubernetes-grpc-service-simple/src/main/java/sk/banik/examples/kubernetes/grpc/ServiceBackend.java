@@ -20,11 +20,12 @@ public class ServiceBackend {
                 .addObject(arguments)
                 .build()
                 .parse(args);
+        final String host = arguments.getHost();
+        final Integer port = arguments.getPort();
 
         final SimpleServiceImpl simpleService = new SimpleServiceImpl();
-
         Server server = NettyServerBuilder.forAddress(
-                new InetSocketAddress(arguments.getHost(), arguments.getPort()))
+                new InetSocketAddress(host, port))
                 .addService(simpleService)
                 .build();
 
@@ -37,7 +38,7 @@ public class ServiceBackend {
             }
         });
 
-        LOG.info("SimpleService Backend, listening on {}:{}", arguments.getHost(), arguments.getPort());
+        LOG.info("SimpleService Backend, listening on {}:{}", host, port);
         server.start();
         server.awaitTermination();
     }
