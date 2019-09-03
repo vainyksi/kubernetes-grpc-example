@@ -8,6 +8,17 @@ mainClassName = 'sk.banik.examples.kubernetes.grpc.ServiceBackend'
 group 'sk.banik.examples'
 version '1.0-SNAPSHOT'
 
+//create a single Jar with all dependencies
+jar {
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.9'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.9.9'
