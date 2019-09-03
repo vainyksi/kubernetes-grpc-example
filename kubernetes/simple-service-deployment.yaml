@@ -48,3 +48,17 @@ spec:
             requests:
               memory: 256Mi
               cpu: 500m
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: simple-service-ingress
+spec:
+  rules:
+    - host: coder.192.168.10.0.xip.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: coder-service
+              servicePort: 8989
